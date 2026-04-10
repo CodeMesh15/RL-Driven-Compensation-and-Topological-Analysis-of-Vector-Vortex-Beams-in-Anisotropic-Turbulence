@@ -1,0 +1,2 @@
+# RL-Driven-Compensation-and-Topological-Analysis-of-Vector-Vortex-Beams-in-Anisotropic-Turbulence
+This repository contains the complete software framework for generating, correcting, and analyzing Vector Vortex Beams (VVBs) propagating through Rayleigh-Bénard convective turbulence. It features a model-free (RL) approach for Adaptive Optics and a theoretical analysis suite for exploring classical entanglement and topological phase transitions.
