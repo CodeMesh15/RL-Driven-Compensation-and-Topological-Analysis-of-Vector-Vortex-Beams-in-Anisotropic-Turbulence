@@ -3,3 +3,4 @@ stable-baselines3[extra]
 scikit-image
 numpy
 matplotlib
+opencv-python
