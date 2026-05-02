@@ -196,6 +196,12 @@ cython_debug/
 
 # Trained model artifacts
 ppo_turbulence_compensator.zip
+checkpoints/
+logs/
+.matplotlib/
+results/
+stokes_matrices/
+raw_lab_data/
 
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to

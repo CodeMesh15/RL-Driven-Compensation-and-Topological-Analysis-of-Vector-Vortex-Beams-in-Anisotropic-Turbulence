@@ -1,5 +1,9 @@
 import argparse
 import os
+from pathlib import Path
+
+os.environ.setdefault("MPLCONFIGDIR", str(Path(".matplotlib").resolve()))
+
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.metrics import structural_similarity as ssim
@@ -18,7 +22,7 @@ def load_matrix(path):
 
 def main():
     parser = argparse.ArgumentParser(description="Evaluate the trained turbulence compensator.")
-    parser.add_argument("--model", default="ppo_turbulence_final.zip")
+    parser.add_argument("--model", default="ppo_turbulence_compensator.zip")
     parser.add_argument("--baseline", help="Optional clean/reference 256x256 .npy matrix.")
     parser.add_argument("--distorted", help="Optional distorted/test 256x256 .npy matrix.")
     parser.add_argument("--episodes", type=int, default=1)

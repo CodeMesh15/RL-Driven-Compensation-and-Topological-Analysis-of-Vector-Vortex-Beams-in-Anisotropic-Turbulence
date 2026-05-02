@@ -37,18 +37,22 @@ class TurbulenceEnv(gym.Env):
         
         # Calculate Reward based on similarity to the Cold Baseline
         current_ssim = ssim(self.baseline, corrected, data_range=1.0)
+        reward = current_ssim - self.last_ssim
+        self.last_ssim = current_ssim
+        self.current_state = corrected
         
         # Terminate if we reach 98% similarity
         terminated = bool(current_ssim > 0.98)
         truncated = False
         
-        return self._get_obs(corrected), current_ssim, terminated, truncated, {}
+        return self._get_obs(corrected), reward, terminated, truncated, {"ssim": current_ssim}
 
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         # Apply random 'Heat' (0.1 to 0.5 intensity) to the baseline to start
         random_heat = np.random.uniform(-0.5, 0.5, 14).tolist()
         self.current_state = turbulence_engine.apply_turbulence(self.baseline, random_heat)
+        self.last_ssim = ssim(self.baseline, self.current_state, data_range=1.0)
         return self._get_obs(self.current_state), {}
 
     def _get_obs(self, matrix):
