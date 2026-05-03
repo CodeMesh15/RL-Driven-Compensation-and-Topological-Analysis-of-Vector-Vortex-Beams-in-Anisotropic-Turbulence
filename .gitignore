@@ -195,13 +195,17 @@ cython_debug/
 .pypirc
 
 # Trained model artifacts
-ppo_turbulence_compensator.zip
 checkpoints/
 logs/
 .matplotlib/
-results/
-stokes_matrices/
-raw_lab_data/
+ppo_turbulence_compensator/
+
+# Private report and presentation artifacts
+report/
+presentation/
+BTP_II/
+make_presentation.py
+make_report_figures.py
 
 # Cursor
 #  Cursor is an AI-powered code editor. `.cursorignore` specifies files/directories to
